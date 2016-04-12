@@ -1,0 +1,14 @@
+server {
+    listen 8080;
+
+    server_name _;
+
+    location / {
+        proxy_pass http://frontend-http/;
+    }
+
+    location /api/ {
+        proxy_pass http://api-http/;
+    }
+
+}
