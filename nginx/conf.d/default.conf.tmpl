@@ -1,7 +1,5 @@
 server {
-    listen 8080;
-
-    server_name _;
+    listen 8080 default_server;
 
     location / {
         proxy_pass http://frontend-http/;
