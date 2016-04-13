@@ -1,12 +1,19 @@
 server {
-    listen 8080 default_server;
-
+    listen 80 default_server;
     location / {
         proxy_pass http://frontend-http/;
     }
-
     location /api/ {
         proxy_pass http://api-http/;
     }
+}
 
+server {
+    listen 443 default_server;
+    location / {
+        proxy_pass https://frontend-https/;
+    }
+    location /api/ {
+        proxy_pass https://api-https/;
+    }
 }
